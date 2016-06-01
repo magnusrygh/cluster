@@ -1,0 +1,8 @@
+---
+- hosts: all
+  sudo: true
+  tasks:
+  - name: Update apt
+    apt: update_cache=yes
+  - name: Install MySql
+    apt: name=mysql-server state=present
