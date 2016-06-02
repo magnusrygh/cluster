@@ -8,8 +8,8 @@ Vagrant.configure(2) do |config|
     web.vm.network "forwarded_port", guest: 80, host: 8087
     web.vm.provision "ansible", playbook: "ansible/web_playbook.yml"
     web.vm.provision "shell", path: "provisioning/provision.sh"
-    web.vm.provision "shell", inline: "apt-get -y install mysql-client"
     web.vm.network "private_network", ip: "192.168.33.20"
+    web.vm.post_up_message = "Apache is available at http://127.0.0.1:8087 reading from ./work"
   end
 
   config.vm.define "db" do |db|

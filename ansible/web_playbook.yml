@@ -6,3 +6,5 @@
     apt: update_cache=yes
   - name: Install Apache
     apt: name=apache2 state=present
+  - name: Install MySql client
+    apt: mysql-client
